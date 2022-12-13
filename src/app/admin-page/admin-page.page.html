@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="salir()" expand="block" fill="clear" shape="round">
+        <ion-icon slot="start" name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-label slot="end">Prox 2</ion-label>
+    <ion-toggle slot="end" (ionChange)="prox($event)"></ion-toggle>
+    <ion-title>Reservaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col size="12">
+    <div class="ion-margin" style="background-color: #222222; padding:5px 20px;" *ngFor="let reservacion of reservaciones"> 
+      <p>
+        Nombre: {{reservacion.nombre}}<br>     
+        Telefono: {{reservacion.telefono}}<br>
+        Fecha: {{formatDate(reservacion.fecha)}}<br>
+        Monto: {{reservacion.monto}}
+      </p>
+    </div>
+  </ion-col>
+
+  <ion-fab vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="refresh()">
+      <ion-icon name="reload-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
